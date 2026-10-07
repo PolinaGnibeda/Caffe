@@ -1,0 +1,21 @@
+﻿<Window x:Class="OnlineCaffe.Clients"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Онлайн-кафе – Клиент" Height="600" Width="400"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanResize">
+
+    <Grid>
+        <Button Content="Выход" HorizontalAlignment="Center" Margin="0,498,0,0" VerticalAlignment="Top" Height="38" Width="260" FontSize="16" FontFamily="Tw Cen MT Condensed Extra Bold" Click="Button_Click_4"/>
+        <Button Content="Меню" HorizontalAlignment="Center" Margin="0,263,0,0" VerticalAlignment="Top" FontSize="16" Width="260" Height="44" Click="Button_Click_1" FontFamily="Tw Cen MT Condensed Extra Bold"/>
+        <Label Content="Данные пользователя:" HorizontalAlignment="Left" Margin="70,130,0,0" VerticalAlignment="Top" FontSize="16" Width="220" FontFamily="Tw Cen MT Condensed Extra Bold"/>
+
+        <TextBox x:Name="txtUserData" HorizontalAlignment="Center" Margin="0,192,0,0" 
+                 TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="260" 
+                 FontSize="16" Height="38" FontFamily="Tw Cen MT Condensed Extra Bold" 
+                 IsReadOnly="True"/>
+
+        <Button Content="Корзина" HorizontalAlignment="Center" Margin="0,346,0,0" VerticalAlignment="Top" FontSize="16" Height="44" Width="260" Click="Button_Click_2" FontFamily="Tw Cen MT Condensed Extra Bold"/>
+        <Button Content="Просмотр истории заказов" HorizontalAlignment="Center" Margin="0,425,0,0" VerticalAlignment="Top" FontSize="16" Height="42" Width="260" Click="Button_Click_3" FontFamily="Tw Cen MT Condensed Extra Bold"/>
+        <Label Content="Окно Клиента" HorizontalAlignment="Center" Margin="0,46,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Tw Cen MT Condensed Extra Bold"/>
+    </Grid>
+</Window>

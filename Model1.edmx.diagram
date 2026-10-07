@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="deddc097b4ef42fabcd13adc59115765" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Basket" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Client" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Delivery" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Dish" Width="1.5" PointX="5.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Kategory" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Order_structure" Width="1.5" PointX="7.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Orders" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Pay" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Rol" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Status_Clien" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Status_delivery" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Status_readiness" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK__Basket__id_statu__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Order_structure_Basket" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Client__id_rol__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Client__id_statu__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Orders__id_clien__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Delivery__id_sta__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Orders_Delivery" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Dish__id_kategor__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Order_structure_Dish" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Orders__id_statu__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Orders__id_statu__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Pay__id_order__2E1BDC42" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

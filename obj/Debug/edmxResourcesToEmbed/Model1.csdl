@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Basket">
+    <Key>
+      <PropertyRef Name="id_basket" />
+    </Key>
+    <Property Name="id_basket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_order_status" Type="Int32" />
+    <Property Name="id_status_readiness" Type="Int32" />
+    <NavigationProperty Name="Status_readiness" Relationship="Self.FK__Basket__id_statu__22AA2996" FromRole="Basket" ToRole="Status_readiness" />
+    <NavigationProperty Name="Order_structure" Relationship="Self.FK_Order_structure_Basket" FromRole="Basket" ToRole="Order_structure" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="id_client" />
+    </Key>
+    <Property Name="id_client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_status" Type="Int32" />
+    <Property Name="id_rol" Type="Int32" />
+    <Property Name="RegistrationDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Rol" Relationship="Self.FK__Client__id_rol__15502E78" FromRole="Client" ToRole="Rol" />
+    <NavigationProperty Name="Status_Clien" Relationship="Self.FK__Client__id_statu__145C0A3F" FromRole="Client" ToRole="Status_Clien" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__id_clien__2A4B4B5E" FromRole="Client" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Delivery">
+    <Key>
+      <PropertyRef Name="id_delivery" />
+    </Key>
+    <Property Name="id_delivery" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sending_Time" Type="DateTime" Precision="3" />
+    <Property Name="Delivery_Time" Type="DateTime" Precision="3" />
+    <Property Name="id_status_delivery" Type="Int32" />
+    <NavigationProperty Name="Status_delivery" Relationship="Self.FK__Delivery__id_sta__5BE2A6F2" FromRole="Delivery" ToRole="Status_delivery" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Delivery" FromRole="Delivery" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Dish">
+    <Key>
+      <PropertyRef Name="id_dish" />
+    </Key>
+    <Property Name="id_dish" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Descriptions" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="6" Scale="2" />
+    <Property Name="id_kategory" Type="Int32" />
+    <Property Name="ImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kategory" Relationship="Self.FK__Dish__id_kategor__1A14E395" FromRole="Dish" ToRole="Kategory" />
+    <NavigationProperty Name="Order_structure" Relationship="Self.FK_Order_structure_Dish" FromRole="Dish" ToRole="Order_structure" />
+  </EntityType>
+  <EntityType Name="Kategory">
+    <Key>
+      <PropertyRef Name="id_kategory" />
+    </Key>
+    <Property Name="id_kategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Dish" Relationship="Self.FK__Dish__id_kategor__1A14E395" FromRole="Kategory" ToRole="Dish" />
+  </EntityType>
+  <EntityType Name="Order_structure">
+    <Key>
+      <PropertyRef Name="id_order_structure" />
+    </Key>
+    <Property Name="id_order_structure" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_dish" Type="Int32" Nullable="false" />
+    <Property Name="id_basket" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Basket" Relationship="Self.FK_Order_structure_Basket" FromRole="Order_structure" ToRole="Basket" />
+    <NavigationProperty Name="Dish" Relationship="Self.FK_Order_structure_Dish" FromRole="Order_structure" ToRole="Dish" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="id_order" />
+    </Key>
+    <Property Name="id_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Registration_Date" Type="DateTime" Precision="3" />
+    <Property Name="Address_delivery" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Cost" Type="Decimal" Precision="6" Scale="2" />
+    <Property Name="id_client" Type="Int32" />
+    <Property Name="id_status_readiness" Type="Int32" />
+    <Property Name="id_delivery" Type="Int32" />
+    <Property Name="id_status_delivery" Type="Int32" />
+    <Property Name="PayMethod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Orders__id_clien__2A4B4B5E" FromRole="Orders" ToRole="Client" />
+    <NavigationProperty Name="Delivery" Relationship="Self.FK_Orders_Delivery" FromRole="Orders" ToRole="Delivery" />
+    <NavigationProperty Name="Status_readiness" Relationship="Self.FK__Orders__id_statu__2B3F6F97" FromRole="Orders" ToRole="Status_readiness" />
+    <NavigationProperty Name="Status_delivery" Relationship="Self.FK__Orders__id_statu__6E01572D" FromRole="Orders" ToRole="Status_delivery" />
+    <NavigationProperty Name="Pay" Relationship="Self.FK__Pay__id_order__2E1BDC42" FromRole="Orders" ToRole="Pay" />
+  </EntityType>
+  <EntityType Name="Pay">
+    <Key>
+      <PropertyRef Name="id_pay" />
+    </Key>
+    <Property Name="id_pay" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cost" Type="Decimal" Precision="6" Scale="2" />
+    <Property Name="Status_pay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_order" Type="Int32" />
+    <Property Name="Payment_Method" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Pay__id_order__2E1BDC42" FromRole="Pay" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="id_rol" />
+    </Key>
+    <Property Name="id_rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Client__id_rol__15502E78" FromRole="Rol" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="Status_Clien">
+    <Key>
+      <PropertyRef Name="id_status" />
+    </Key>
+    <Property Name="id_status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Client__id_statu__145C0A3F" FromRole="Status_Clien" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="Status_delivery">
+    <Key>
+      <PropertyRef Name="id_status_delivery" />
+    </Key>
+    <Property Name="id_status_delivery" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Delivery" Relationship="Self.FK__Delivery__id_sta__5BE2A6F2" FromRole="Status_delivery" ToRole="Delivery" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__id_statu__6E01572D" FromRole="Status_delivery" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Status_readiness">
+    <Key>
+      <PropertyRef Name="id_status_readiness" />
+    </Key>
+    <Property Name="id_status_readiness" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Basket" Relationship="Self.FK__Basket__id_statu__22AA2996" FromRole="Status_readiness" ToRole="Basket" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__id_statu__2B3F6F97" FromRole="Status_readiness" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__Basket__id_statu__22AA2996">
+    <End Role="Status_readiness" Type="Self.Status_readiness" Multiplicity="0..1" />
+    <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status_readiness">
+        <PropertyRef Name="id_status_readiness" />
+      </Principal>
+      <Dependent Role="Basket">
+        <PropertyRef Name="id_status_readiness" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_structure_Basket">
+    <End Role="Basket" Type="Self.Basket" Multiplicity="1" />
+    <End Role="Order_structure" Type="Self.Order_structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Basket">
+        <PropertyRef Name="id_basket" />
+      </Principal>
+      <Dependent Role="Order_structure">
+        <PropertyRef Name="id_basket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client__id_rol__15502E78">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="id_rol" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="id_rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client__id_statu__145C0A3F">
+    <End Role="Status_Clien" Type="Self.Status_Clien" Multiplicity="0..1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status_Clien">
+        <PropertyRef Name="id_status" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="id_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__id_clien__2A4B4B5E">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="id_client" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="id_client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Delivery__id_sta__5BE2A6F2">
+    <End Role="Status_delivery" Type="Self.Status_delivery" Multiplicity="0..1" />
+    <End Role="Delivery" Type="Self.Delivery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status_delivery">
+        <PropertyRef Name="id_status_delivery" />
+      </Principal>
+      <Dependent Role="Delivery">
+        <PropertyRef Name="id_status_delivery" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Delivery">
+    <End Role="Delivery" Type="Self.Delivery" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Delivery">
+        <PropertyRef Name="id_delivery" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="id_delivery" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dish__id_kategor__1A14E395">
+    <End Role="Kategory" Type="Self.Kategory" Multiplicity="0..1" />
+    <End Role="Dish" Type="Self.Dish" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategory">
+        <PropertyRef Name="id_kategory" />
+      </Principal>
+      <Dependent Role="Dish">
+        <PropertyRef Name="id_kategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_structure_Dish">
+    <End Role="Dish" Type="Self.Dish" Multiplicity="1" />
+    <End Role="Order_structure" Type="Self.Order_structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dish">
+        <PropertyRef Name="id_dish" />
+      </Principal>
+      <Dependent Role="Order_structure">
+        <PropertyRef Name="id_dish" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__id_statu__2B3F6F97">
+    <End Role="Status_readiness" Type="Self.Status_readiness" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status_readiness">
+        <PropertyRef Name="id_status_readiness" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="id_status_readiness" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__id_statu__6E01572D">
+    <End Role="Status_delivery" Type="Self.Status_delivery" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status_delivery">
+        <PropertyRef Name="id_status_delivery" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="id_status_delivery" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pay__id_order__2E1BDC42">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="Pay" Type="Self.Pay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="id_order" />
+      </Principal>
+      <Dependent Role="Pay">
+        <PropertyRef Name="id_order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CoffeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Basket" EntityType="Self.Basket" />
+    <EntitySet Name="Client" EntityType="Self.Client" />
+    <EntitySet Name="Delivery" EntityType="Self.Delivery" />
+    <EntitySet Name="Dish" EntityType="Self.Dish" />
+    <EntitySet Name="Kategory" EntityType="Self.Kategory" />
+    <EntitySet Name="Order_structure" EntityType="Self.Order_structure" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" />
+    <EntitySet Name="Pay" EntityType="Self.Pay" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" />
+    <EntitySet Name="Status_Clien" EntityType="Self.Status_Clien" />
+    <EntitySet Name="Status_delivery" EntityType="Self.Status_delivery" />
+    <EntitySet Name="Status_readiness" EntityType="Self.Status_readiness" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK__Basket__id_statu__22AA2996" Association="Self.FK__Basket__id_statu__22AA2996">
+      <End Role="Status_readiness" EntitySet="Status_readiness" />
+      <End Role="Basket" EntitySet="Basket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_structure_Basket" Association="Self.FK_Order_structure_Basket">
+      <End Role="Basket" EntitySet="Basket" />
+      <End Role="Order_structure" EntitySet="Order_structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client__id_rol__15502E78" Association="Self.FK__Client__id_rol__15502E78">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client__id_statu__145C0A3F" Association="Self.FK__Client__id_statu__145C0A3F">
+      <End Role="Status_Clien" EntitySet="Status_Clien" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__id_clien__2A4B4B5E" Association="Self.FK__Orders__id_clien__2A4B4B5E">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Delivery__id_sta__5BE2A6F2" Association="Self.FK__Delivery__id_sta__5BE2A6F2">
+      <End Role="Status_delivery" EntitySet="Status_delivery" />
+      <End Role="Delivery" EntitySet="Delivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Delivery" Association="Self.FK_Orders_Delivery">
+      <End Role="Delivery" EntitySet="Delivery" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dish__id_kategor__1A14E395" Association="Self.FK__Dish__id_kategor__1A14E395">
+      <End Role="Kategory" EntitySet="Kategory" />
+      <End Role="Dish" EntitySet="Dish" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_structure_Dish" Association="Self.FK_Order_structure_Dish">
+      <End Role="Dish" EntitySet="Dish" />
+      <End Role="Order_structure" EntitySet="Order_structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__id_statu__2B3F6F97" Association="Self.FK__Orders__id_statu__2B3F6F97">
+      <End Role="Status_readiness" EntitySet="Status_readiness" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__id_statu__6E01572D" Association="Self.FK__Orders__id_statu__6E01572D">
+      <End Role="Status_delivery" EntitySet="Status_delivery" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pay__id_order__2E1BDC42" Association="Self.FK__Pay__id_order__2E1BDC42">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Pay" EntitySet="Pay" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

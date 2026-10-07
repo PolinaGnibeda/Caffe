@@ -1,0 +1,14 @@
+﻿<Window x:Class="OnlineCaffe.Admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Онлайн-кафе – Администратор" Height="600" Width="400">
+    <Grid>
+        <Label Content="Окно Администратора" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Tw Cen MT Condensed Extra Bold"/>
+        <Button Content="Пользователи" HorizontalAlignment="Center" Margin="0,119,0,0" VerticalAlignment="Top" FontSize="16" Height="40" Width="252" FontFamily="Tw Cen MT Condensed Extra Bold" Click="Button_Click_1"/>
+        <Button Content="Меню" HorizontalAlignment="Center" Margin="0,188,0,0" VerticalAlignment="Top" FontSize="16" Height="39" Width="252" FontFamily="Tw Cen MT Condensed Extra Bold" Click="Button_Click_2"/>
+        <Button Content="Заказы" HorizontalAlignment="Center" Margin="0,253,0,0" VerticalAlignment="Top" FontSize="16" Height="39" Width="252" FontFamily="Tw Cen MT Condensed Extra Bold" Click="Button_Click_3"/>
+        <Button Content="Отчеты" HorizontalAlignment="Center" Margin="0,320,0,0" VerticalAlignment="Top" FontSize="16" Width="252" Height="36" FontFamily="Tw Cen MT Condensed Extra Bold" Click="Button_Click_4"/>
+        <Button Content="Выход" HorizontalAlignment="Center" Margin="0,384,0,0" VerticalAlignment="Top" FontSize="16" Height="34" Width="252" FontFamily="Tw Cen MT Condensed Extra Bold" Click="Button_Click"/>
+
+    </Grid>
+</Window>

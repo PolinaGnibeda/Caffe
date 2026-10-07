@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="CoffeEntities">
+    <EntitySetMapping Name="Basket">
+      <EntityTypeMapping TypeName="Model.Basket">
+        <MappingFragment StoreEntitySet="Basket">
+          <ScalarProperty Name="id_basket" ColumnName="id_basket" />
+          <ScalarProperty Name="id_order_status" ColumnName="id_order_status" />
+          <ScalarProperty Name="id_status_readiness" ColumnName="id_status_readiness" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="Model.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="id_client" ColumnName="id_client" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="id_status" ColumnName="id_status" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Delivery">
+      <EntityTypeMapping TypeName="Model.Delivery">
+        <MappingFragment StoreEntitySet="Delivery">
+          <ScalarProperty Name="id_delivery" ColumnName="id_delivery" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Sending_Time" ColumnName="Sending_Time" />
+          <ScalarProperty Name="Delivery_Time" ColumnName="Delivery_Time" />
+          <ScalarProperty Name="id_status_delivery" ColumnName="id_status_delivery" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dish">
+      <EntityTypeMapping TypeName="Model.Dish">
+        <MappingFragment StoreEntitySet="Dish">
+          <ScalarProperty Name="id_dish" ColumnName="id_dish" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="id_kategory" ColumnName="id_kategory" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategory">
+      <EntityTypeMapping TypeName="Model.Kategory">
+        <MappingFragment StoreEntitySet="Kategory">
+          <ScalarProperty Name="id_kategory" ColumnName="id_kategory" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_structure">
+      <EntityTypeMapping TypeName="Model.Order_structure">
+        <MappingFragment StoreEntitySet="Order_structure">
+          <ScalarProperty Name="id_order_structure" ColumnName="id_order_structure" />
+          <ScalarProperty Name="id_dish" ColumnName="id_dish" />
+          <ScalarProperty Name="id_basket" ColumnName="id_basket" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="Model.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="id_order" ColumnName="id_order" />
+          <ScalarProperty Name="Registration_Date" ColumnName="Registration_Date" />
+          <ScalarProperty Name="Address_delivery" ColumnName="Address_delivery" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="id_client" ColumnName="id_client" />
+          <ScalarProperty Name="id_status_readiness" ColumnName="id_status_readiness" />
+          <ScalarProperty Name="id_delivery" ColumnName="id_delivery" />
+          <ScalarProperty Name="id_status_delivery" ColumnName="id_status_delivery" />
+          <ScalarProperty Name="PayMethod" ColumnName="PayMethod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pay">
+      <EntityTypeMapping TypeName="Model.Pay">
+        <MappingFragment StoreEntitySet="Pay">
+          <ScalarProperty Name="id_pay" ColumnName="id_pay" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Status_pay" ColumnName="Status_pay" />
+          <ScalarProperty Name="id_order" ColumnName="id_order" />
+          <ScalarProperty Name="Payment_Method" ColumnName="Payment_Method" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rol">
+      <EntityTypeMapping TypeName="Model.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status_Clien">
+      <EntityTypeMapping TypeName="Model.Status_Clien">
+        <MappingFragment StoreEntitySet="Status_Clien">
+          <ScalarProperty Name="id_status" ColumnName="id_status" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status_delivery">
+      <EntityTypeMapping TypeName="Model.Status_delivery">
+        <MappingFragment StoreEntitySet="Status_delivery">
+          <ScalarProperty Name="id_status_delivery" ColumnName="id_status_delivery" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status_readiness">
+      <EntityTypeMapping TypeName="Model.Status_readiness">
+        <MappingFragment StoreEntitySet="Status_readiness">
+          <ScalarProperty Name="id_status_readiness" ColumnName="id_status_readiness" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

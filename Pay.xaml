@@ -1,0 +1,37 @@
+﻿<Window x:Class="OnlineCaffe.Pay"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Платежи" Height="450" Width="700">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+            <Label Content="Введите логин пользователя:" VerticalAlignment="Center" FontSize="14" FontFamily="Tw Cen MT Condensed Extra Bold"/>
+            <TextBox x:Name="txtLogin" Width="200" Margin="10,0,0,0" FontSize="14" 
+                     TextChanged="TxtLogin_TextChanged" FontFamily="Tw Cen MT Condensed Extra Bold"/>
+        </StackPanel>
+
+        <DataGrid x:Name="listPayments" Grid.Row="1" Margin="10" 
+                  AutoGenerateColumns="False" CanUserAddRows="False"
+                  FontSize="13" FontFamily="Tw Cen MT Condensed Extra Bold">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№ платежа" Binding="{Binding id_pay}" Width="80"/>
+                <DataGridTextColumn Header="Сумма" Binding="{Binding Cost, StringFormat={}{0:F2} ₽}" Width="100"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding Status_pay}" Width="120"/>
+                <DataGridTextColumn Header="Способ оплаты" Binding="{Binding Payment_Method}" Width="150"/>
+                <DataGridTextColumn Header="№ заказа" Binding="{Binding OrderId}" Width="80"/>
+                <DataGridTextColumn Header="Клиент" Binding="{Binding ClientName}" Width="120"/>
+                <DataGridTextColumn Header="Дата заказа" Binding="{Binding OrderDate, StringFormat=dd.MM.yyyy}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Content="Вернуться на главную" Grid.Row="2" Width="180" Height="35" 
+                Margin="10,0,0,10" HorizontalAlignment="Left" 
+                Click="Button_Click" FontSize="14" FontFamily="Tw Cen MT Condensed Extra Bold"/>
+    </Grid>
+</Window>

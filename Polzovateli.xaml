@@ -1,0 +1,18 @@
+﻿<Window x:Class="OnlineCaffe.Polzovateli"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnlineCaffe"
+        mc:Ignorable="d"
+        Title="Polzovateli" Height="450" Width="680">
+    <Grid>
+        <Label Content="Список пользователей" HorizontalAlignment="Left" Margin="47,10,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Tw Cen MT Condensed Extra Bold"/>
+        <ListBox x:Name="Pol" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,63,27,100" FontFamily="Tw Cen MT Condensed Extra Bold"/>
+        <Button Content="Заблокировать" HorizontalAlignment="Left" Margin="0,374,0,0" VerticalAlignment="Top" FontSize="16" Height="36" Width="136" FontFamily="Tw Cen MT Condensed Extra Bold" Click="Button_Click_1"/>
+        <Button Content="Разблокировать" HorizontalAlignment="Left" Margin="141,374,0,0" VerticalAlignment="Top" FontSize="16" Height="36" Width="141" FontFamily="Tw Cen MT Condensed Extra Bold" Click="Button_Click_2"/>
+        <Button Content="Вернуться на главную" HorizontalAlignment="Left" Margin="287,374,0,0" VerticalAlignment="Top" FontSize="16" Height="36" Width="190" Click="Button_Click" FontFamily="Tw Cen MT Condensed Extra Bold"/>
+        <Button Content="Назначить менеджера" HorizontalAlignment="Left" Margin="482,374,0,0" VerticalAlignment="Top" FontSize="16" Height="36" FontFamily="Tw Cen MT Condensed Extra Bold" Click="Button_Click_3"/>
+
+    </Grid>
+</Window>

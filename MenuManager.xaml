@@ -1,0 +1,35 @@
+﻿<Window x:Class="OnlineCaffe.MenuManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnlineCaffe"
+        mc:Ignorable="d"
+        Title="MenuManager" Height="450" Width="500">
+    <Grid>
+        <Label Content="Меню" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Tw Cen MT Condensed Extra Bold"/>
+        <ListBox x:Name="listMenu" Margin="32,66,32,65">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="5" >
+                        <!-- Картинка -->
+                        <Image Source="{Binding FullImagePath}" Width="80" Height="80" 
+                       Stretch="UniformToFill"/>
+
+                        <!-- Информация о блюде -->
+                        <StackPanel Margin="15,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="16"/>
+                            <TextBlock Text="{Binding Descriptions}" FontSize="12" 
+                               Foreground="Gray" TextWrapping="Wrap" Width="300"/>
+                            <TextBlock Text="{Binding Price, StringFormat='Цена: {0:F2} ₽'}" 
+                               FontWeight="Bold" FontSize="14" Foreground="Green" 
+                               Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Вернуться на главную" HorizontalAlignment="Left" Margin="31,378,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="16" Height="34" Width="230" Click="Button_Click"/>
+
+    </Grid>
+</Window>
